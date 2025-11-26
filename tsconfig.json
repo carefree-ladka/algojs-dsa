@@ -12,6 +12,8 @@
     "types": [],
     "forceConsistentCasingInFileNames": true,
     "moduleResolution": "node",
+    "allowImportingTsExtensions": false,
+    "noEmit": false,
     "resolveJsonModule": true,
     "isolatedModules": true
   },

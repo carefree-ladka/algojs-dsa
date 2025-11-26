@@ -1,2 +1,2 @@
-export { default as Deque } from "./Deque.js";
-export { default as PriorityQueue } from "./PriorityQueue.js";
+export { default as Deque } from "./Deque";
+export { default as PriorityQueue } from "./PriorityQueue";
