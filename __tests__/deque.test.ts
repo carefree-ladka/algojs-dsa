@@ -1,5 +1,4 @@
-import Deque from "../index";
-
+import { Deque } from "../src";
 describe("Deque", () => {
   describe("Constructor", () => {
     it("should create an empty deque with default capacity", () => {
@@ -30,6 +29,26 @@ describe("Deque", () => {
         deque.push(i);
       }
       expect(deque.size).toBe(20);
+    });
+
+    it("should create deque with initial elements", () => {
+      const deque = new Deque<number>([1, 2, 3]);
+      expect(deque.size).toBe(3);
+      expect(deque.toArray()).toEqual([1, 2, 3]);
+    });
+
+    it("should create empty deque with empty array", () => {
+      const deque = new Deque<number>([]);
+      expect(deque.size).toBe(0);
+      expect(deque.isEmpty()).toBe(true);
+    });
+
+    it("should work with different types in constructor", () => {
+      const stringDeque = new Deque<string>(["hello", "world"]);
+      expect(stringDeque.toArray()).toEqual(["hello", "world"]);
+
+      const objectDeque = new Deque<{id: number}>([{id: 1}, {id: 2}]);
+      expect(objectDeque.size).toBe(2);
     });
   });
 
