@@ -1,6 +1,6 @@
 {
   "name": "algojs-dsa",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "High-performance data structures (Deque, PriorityQueue) for DSA practice with optimal time complexity",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
