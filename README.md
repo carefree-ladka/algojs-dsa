@@ -1,3 +1,5 @@
+[![npm version](https://img.shields.io/npm/v/algojs-dsa.svg)](https://www.npmjs.com/package/algojs-dsa)
+
 # AlgoJS DSA
 
 High-performance data structures for Data Structures and Algorithms practice in TypeScript. Includes Deque and PriorityQueue with optimal time complexity.
