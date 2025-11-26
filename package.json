@@ -1,5 +1,5 @@
 {
-  "name": "arrayqeque",
+  "name": "arraydeque",
   "version": "1.0.3",
   "description": "High-performance Deque (Double-Ended Queue) for DSA practice with O(1) operations",
   "main": "dist/index.js",
