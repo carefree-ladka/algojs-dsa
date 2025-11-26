@@ -6,7 +6,7 @@
  *
  * @example
  * ```typescript
- * const deque = new ArrayDeque<number>();
+ * const deque = new Deque<number>();
  *
  * // Use as Stack
  * deque.push(1);
@@ -25,7 +25,7 @@
  * deque.popBack(); // 2
  * ```
  */
-declare class ArrayDeque<T> {
+declare class Deque<T> {
     private buffer;
     private head;
     private tail;
@@ -275,6 +275,6 @@ declare class ArrayDeque<T> {
      * const deque2 = deque1.clone();
      * ```
      */
-    clone(): ArrayDeque<T>;
+    clone(): Deque<T>;
 }
-export default ArrayDeque;
+export default Deque;

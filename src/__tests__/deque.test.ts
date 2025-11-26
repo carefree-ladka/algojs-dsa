@@ -1,32 +1,30 @@
-import ArrayDeque from "../index";
-
-type Deque<T> = ArrayDeque<T>;
+import Deque from "../index";
 
 describe("Deque", () => {
   describe("Constructor", () => {
     it("should create an empty deque with default capacity", () => {
-      const deque = new ArrayDeque<number>();
+      const deque = new Deque<number>();
       expect(deque.size).toBe(0);
       expect(deque.isEmpty()).toBe(true);
     });
 
     it("should create an empty deque with custom capacity", () => {
-      const deque = new ArrayDeque<number>(32);
+      const deque = new Deque<number>(32);
       expect(deque.size).toBe(0);
       expect(deque.isEmpty()).toBe(true);
     });
 
     it("should throw error for invalid capacity", () => {
-      expect(() => new ArrayDeque<number>(0)).toThrow(
+      expect(() => new Deque<number>(0)).toThrow(
         "Initial capacity must be at least 1"
       );
-      expect(() => new ArrayDeque<number>(-5)).toThrow(
+      expect(() => new Deque<number>(-5)).toThrow(
         "Initial capacity must be at least 1"
       );
     });
 
     it("should use minimum capacity of 16", () => {
-      const deque = new ArrayDeque<number>(5);
+      const deque = new Deque<number>(5);
       // Should work fine with at least 16 capacity
       for (let i = 0; i < 20; i++) {
         deque.push(i);
@@ -39,7 +37,7 @@ describe("Deque", () => {
     let deque: Deque<number>;
 
     beforeEach(() => {
-      deque = new ArrayDeque<number>();
+      deque = new Deque<number>();
     });
 
     it("should check if deque is empty", () => {
@@ -73,7 +71,7 @@ describe("Deque", () => {
     let deque: Deque<number>;
 
     beforeEach(() => {
-      deque = new ArrayDeque<number>();
+      deque = new Deque<number>();
     });
 
     it("should push elements to front", () => {
@@ -113,7 +111,7 @@ describe("Deque", () => {
     let deque: Deque<number>;
 
     beforeEach(() => {
-      deque = new ArrayDeque<number>();
+      deque = new Deque<number>();
     });
 
     it("should push elements to back", () => {
@@ -149,7 +147,7 @@ describe("Deque", () => {
     let deque: Deque<number>;
 
     beforeEach(() => {
-      deque = new ArrayDeque<number>();
+      deque = new Deque<number>();
     });
 
     it("should handle mixed push operations", () => {
@@ -189,7 +187,7 @@ describe("Deque", () => {
     let deque: Deque<number>;
 
     beforeEach(() => {
-      deque = new ArrayDeque<number>();
+      deque = new Deque<number>();
     });
 
     it("should work as a stack (LIFO)", () => {
@@ -217,7 +215,7 @@ describe("Deque", () => {
     let deque: Deque<number>;
 
     beforeEach(() => {
-      deque = new ArrayDeque<number>();
+      deque = new Deque<number>();
     });
 
     it("should work as a queue (FIFO)", () => {
@@ -245,7 +243,7 @@ describe("Deque", () => {
     let deque: Deque<number>;
 
     beforeEach(() => {
-      deque = new ArrayDeque<number>();
+      deque = new Deque<number>();
     });
 
     it("should support unshift operation", () => {
@@ -280,7 +278,7 @@ describe("Deque", () => {
 
   describe("Dynamic Growth", () => {
     it("should grow capacity when full", () => {
-      const deque = new ArrayDeque<number>(4);
+      const deque = new Deque<number>(4);
 
       // Fill initial capacity
       for (let i = 0; i < 10; i++) {
@@ -292,7 +290,7 @@ describe("Deque", () => {
     });
 
     it("should handle growth with mixed operations", () => {
-      const deque = new ArrayDeque<number>(4);
+      const deque = new Deque<number>(4);
 
       for (let i = 0; i < 5; i++) {
         deque.pushFront(i);
@@ -305,7 +303,7 @@ describe("Deque", () => {
     });
 
     it("should maintain order after multiple growths", () => {
-      const deque = new ArrayDeque<number>(2);
+      const deque = new Deque<number>(2);
 
       for (let i = 0; i < 100; i++) {
         deque.push(i);
@@ -322,7 +320,7 @@ describe("Deque", () => {
     let deque: Deque<number>;
 
     beforeEach(() => {
-      deque = new ArrayDeque<number>();
+      deque = new Deque<number>();
     });
 
     it("should handle single element", () => {
@@ -341,7 +339,7 @@ describe("Deque", () => {
     });
 
     it("should handle circular buffer wrapping", () => {
-      const deque = new ArrayDeque<number>(4);
+      const deque = new Deque<number>(4);
 
       // Fill and empty multiple times to test wrapping
       for (let i = 0; i < 3; i++) {
@@ -369,7 +367,7 @@ describe("Deque", () => {
     let deque: Deque<number>;
 
     beforeEach(() => {
-      deque = new ArrayDeque<number>();
+      deque = new Deque<number>();
     });
 
     it("should iterate over elements", () => {
@@ -406,7 +404,7 @@ describe("Deque", () => {
     let deque: Deque<number>;
 
     beforeEach(() => {
-      deque = new ArrayDeque<number>();
+      deque = new Deque<number>();
     });
 
     it("should convert to array", () => {
@@ -446,12 +444,12 @@ describe("Deque", () => {
 
   describe("Type Safety", () => {
     it("should work with different types", () => {
-      const stringDeque = new ArrayDeque<string>();
+      const stringDeque = new Deque<string>();
       stringDeque.push("hello");
       stringDeque.push("world");
       expect(stringDeque.pop()).toBe("world");
 
-      const objectDeque = new ArrayDeque<{ id: number }>();
+      const objectDeque = new Deque<{ id: number }>();
       objectDeque.push({ id: 1 });
       objectDeque.push({ id: 2 });
       expect(objectDeque.pop()).toEqual({ id: 2 });
@@ -460,7 +458,7 @@ describe("Deque", () => {
 
   describe("Performance Stress Test", () => {
     it("should handle large number of operations", () => {
-      const deque = new ArrayDeque<number>();
+      const deque = new Deque<number>();
       const n = 10000;
 
       // Push operations
